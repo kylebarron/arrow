@@ -1,4 +1,5 @@
 {
+    "$schema": "https://typedoc.org/schema.json",
     "entryPoints": ["src/Arrow.dom.ts", "src/Arrow.node.ts"],
     "out": "doc",
     "name": "Apache Arrow",
@@ -7,9 +8,6 @@
     "excludeProtected": true,
     "excludeExternals": true,
     "includeVersion": true,
-    "exclude": [
-        "src/fb/*.ts",
-        "src/bin/*.ts",
-        "src/ipc/metadata/message.ts"
-    ]
+    "exclude": ["src/fb/*.ts", "src/bin/*.ts", "src/ipc/metadata/message.ts"],
+    "plugin": ["typedoc-plugin-missing-exports"]
 }

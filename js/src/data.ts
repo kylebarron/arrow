@@ -48,7 +48,17 @@ export interface Data<T extends DataType = DataType> {
 }
 
 /**
- * Data structure underlying {@link Vector}s. Use the convenience method {@link makeData}.
+ * A data structure representing contiguous Arrow memory.
+ *
+ * `Data` objects are guaranteed to hold their underlying array data in
+ * contiguous buffers, according to the Arrow specification. This is in contrast
+ * to the {@link Vector} data structure, which is made up of one or more `Data`
+ * instances.
+ *
+ * While the `Data` class has its own constructor, the convenience method
+ * {@link makeData} can be easier to use for constructing `Data` instances.
+ *
+ * This is sometimes called just `Array` in other Arrow implementations.
  */
 export class Data<T extends DataType = DataType> {
 
