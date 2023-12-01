@@ -59,10 +59,26 @@ const visitorsByTypeId = {} as { [typeId: number]: { get: any; set: any; indexOf
 const vectorPrototypesByTypeId = {} as { [typeId: number]: any };
 
 /**
+ * A chunked array-like data structure.
+ *
+ * In contrast to
+ *
+ * This is sometimes called a `ChunkedArray` in other Arrow implementations.
  * Array-like data structure. Use the convenience method {@link makeVector} and {@link vectorFromArray} to create vectors.
  */
 export class Vector<T extends DataType = any> {
 
+    /**
+     * [constructor description]
+     *
+     * @param   {readonly}      input   [input description]
+     * @param   {undefined<T>}  Data    [Data description]
+     * @param   {undefined<|>}  T       [T description]
+     * @param   {undefined<T>}  Vector  [Vector description]
+     * @param   {undefined[]}   T       [T description]
+     *
+     * @return  {<T><|><T>[]}           [return description]
+     */
     constructor(input: readonly (Data<T> | Vector<T>)[]) {
         const data: Data<T>[] = input[0] instanceof Vector
             ? (input as Vector<T>[]).flatMap(x => x.data)
